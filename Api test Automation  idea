@@ -1,0 +1,12 @@
+接口测试自动化思路：
+1.通过单个方法向接口请求post,get，delete,put方法---->获取接口返回的json请求---->解析json，获取校验的字段信息，用assert进行校验
+2.组织测试用例，调用上面的方法
+3.使用testNG组织用例的运行和执行顺序
+
+注意：
+1.请求的header中必须设置setHeader("User-Agent", Chrome);
+2.使用List<NameValuePair>设置post请求的参数
+3.最好使用阿里的json解析，结合javabean解析很简单
+4.有的地方需要设置token变量，什么时候需要可以看请求头的cookie中，在发送时传入一个token，服务器返回时会显示同样内容但不同名称的token
+5.构造不同身份的用户实例来执行不同的权限操作
+6.在测试用例中设置setUp和tearDown来处理登录和用户实例的关闭
